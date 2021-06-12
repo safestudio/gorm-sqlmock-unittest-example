@@ -2,8 +2,8 @@ package repository
 
 import (
 	"github.com/Rosaniline/gorm-ut/pkg/model"
-	"github.com/jinzhu/gorm"
-	"github.com/satori/go.uuid"
+	"github.com/google/uuid"
+	"gorm.io/gorm"
 )
 
 type Repository interface {
@@ -21,7 +21,18 @@ func (p *repo) Create(id uuid.UUID, name string) error {
 		Name: name,
 	}
 
-	return p.DB.Create(person).Error
+	err := p.DB.Transaction(func(tx *gorm.DB) error {
+		// do some database operations in the transaction (use 'tx' from this point, not 'db')
+		if err := tx.Create(person).Error; err != nil {
+			// return any error will rollback
+			return err
+		}
+
+		// return nil will commit the whole transaction
+		return nil
+	})
+
+	return err
 }
 
 func (p *repo) Get(id uuid.UUID) (*model.Person, error) {

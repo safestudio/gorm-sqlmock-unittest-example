@@ -1,6 +1,6 @@
 package model
 
-import "github.com/satori/go.uuid"
+import "github.com/google/uuid"
 
 type Person struct {
 	ID   uuid.UUID `gorm:"column:id;primary_key" json:"id"`
