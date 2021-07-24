@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/Rosaniline/gorm-ut/pkg/model"
+	"github.com/SafeStudio/gorm-sqlmock-unittest-example/pkg/model"
 	"github.com/go-test/deep"
 
 	"github.com/google/uuid"

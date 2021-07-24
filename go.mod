@@ -1,6 +1,8 @@
-module github.com/Rosaniline/gorm-ut
+module github.com/SafeStudio/gorm-sqlmock-unittest-example
 
 go 1.16
+
+replace github.com/SafeStudio/gorm-sqlmock-unittest-example => ./
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0

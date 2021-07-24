@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/Rosaniline/gorm-ut/pkg/model"
+	"github.com/SafeStudio/gorm-sqlmock-unittest-example/pkg/model"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
